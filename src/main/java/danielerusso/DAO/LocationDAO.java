@@ -1,33 +1,33 @@
 package danielerusso.DAO;
 
-import danielerusso.entities.Participation;
+import danielerusso.entities.Location;
 import danielerusso.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
-public class ParticipationDAO {
+public class LocationDAO {
     private EntityManager entityManager;
 
-    public ParticipationDAO(EntityManager entityManager) {
+    public LocationDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public void save(Participation newParticipation) {
+    public void save(Location newLocation) {
 
         EntityTransaction transaction = entityManager.getTransaction();
 
         transaction.begin();
 
-        entityManager.persist(newParticipation);
+        entityManager.persist(newLocation);
 
         transaction.commit();
 
-        System.out.println("Participation added successfully.");
+        System.out.println("Location added successfully.");
 
     }
 
-    public Participation findById(int id) {
-        Participation found = entityManager.find(Participation.class, id);
+    public Location findById(int id) {
+        Location found = entityManager.find(Location.class, id);
         if (found == null) throw new NotFoundException(id);
         return found;
     }
