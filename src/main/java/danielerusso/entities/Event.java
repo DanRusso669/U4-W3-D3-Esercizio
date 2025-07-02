@@ -3,6 +3,7 @@ package danielerusso.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 
@@ -29,15 +30,23 @@ public class Event {
     @Column(name = "maximum guests")
     private int maxGuests;
 
+    @ManyToOne
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;
+
+    @OneToMany(mappedBy = "event")
+    private List<Participation> participationList;
+
     public Event() {
     }
 
-    public Event(String title, LocalDate eventDate, String description, EventType eventType, int maxGuests) {
+    public Event(String title, LocalDate eventDate, String description, EventType eventType, int maxGuests, Location location) {
         this.title = title;
         this.eventDate = eventDate;
         this.description = description;
         this.eventType = eventType;
         this.maxGuests = maxGuests;
+        this.location = location;
     }
 
     @Override
@@ -54,10 +63,6 @@ public class Event {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {

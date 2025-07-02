@@ -1,5 +1,5 @@
 package danielerusso.entities;
 
-public enum PartecipationType {
+public enum ParticipationType {
     CONFIRMED, NOT_CONFIRMED
 }

@@ -100,7 +100,7 @@ public class Person {
                 ", email='" + email + '\'' +
                 ", bday=" + bday +
                 ", gender=" + gender +
-                ", partecipationList=" + participationList +
+                //", partecipationList=" + participationList +
                 '}';
     }
 }

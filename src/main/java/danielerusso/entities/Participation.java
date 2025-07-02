@@ -19,5 +19,53 @@ public class Participation {
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
-    private PartecipationType state;
+    @Enumerated(EnumType.STRING)
+    private ParticipationType state;
+
+    public Participation() {
+    }
+
+    public Participation(Person person, Event event, ParticipationType state) {
+        this.person = person;
+        this.event = event;
+        this.state = state;
+    }
+
+    public int getPartecipation_id() {
+        return partecipation_id;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    @Override
+    public String toString() {
+        return "Participation{" +
+                "partecipation_id=" + partecipation_id +
+                ", person=" + person +
+                ", event=" + event +
+                ", state=" + state +
+                '}';
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public ParticipationType getState() {
+        return state;
+    }
+
+    public void setState(ParticipationType state) {
+        this.state = state;
+    }
 }
