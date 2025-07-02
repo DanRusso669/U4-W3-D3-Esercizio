@@ -42,7 +42,7 @@ public class Application {
 
         Participation part1 = new Participation(marioFromDB, showcaseFromDB, ParticipationType.CONFIRMED);
         Participation part2 = new Participation(marioFromDB, partyFromDB, ParticipationType.CONFIRMED);
-        partd.save(part2);
+        // partd.save(part2);
 
         //ld.save(location1);
         //  ld.save(location2);
@@ -57,8 +57,12 @@ public class Application {
         // pd.save(person3);
 
         Participation partFromDB = partd.findById(1);
-        System.out.println(partFromDB);
+        Participation part2FromDB = partd.findById(2);
+        // System.out.println(partFromDB);
         marioFromDB.getParticipationList().forEach(System.out::println);
 
+
+        em.close();
+        emf.close();
     }
 }
